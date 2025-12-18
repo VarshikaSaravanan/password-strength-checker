@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Password Strength Checker</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #0f172a;
+        color: #e5e7eb;
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+      }
+      .box {
+        background: #020617;
+        padding: 30px;
+        width: 400px;
+        border-radius: 10px;
+      }
+      input,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      .bar {
+        background: #1e293b;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+      .fill {
+        background: #22c55e;
+        height: 15px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>Password Strength Checker</h2>
+
+      <form method="POST">
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter password"
+          required
+        />
+        <button type="submit">Check Strength</button>
+      </form>
+
+      {% if result %}
+      <h3>Strength: {{ result.strength }}</h3>
+      <p>{{ result.percent }}%</p>
+
+      <div class="bar">
+        <div class="fill" style="width: {{ result.percent }}%"></div>
+      </div>
+
+      <p>⏱ Estimated crack time: {{ result.crack_time }}</p>
+
+      {% if result.tips %}
+      <h4>Suggestions</h4>
+      <ul>
+        {% for tip in result.tips %}
+        <li>{{ tip }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endif %}
+    </div>
+  </body>
+</html>
