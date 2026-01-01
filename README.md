@@ -1,6 +1,7 @@
 Password Checker Web Application
 
 Overview
+
 The Password Checker Web Application is a lightweight, security-focused tool designed to help users evaluate the strength of their passwords in real-time. Built with Python and Flask, this application provides immediate feedback on password complexity, estimates the time required for brute-force attacks, and offers actionable tips to enhance security. It serves as an educational tool to raise awareness about the importance of strong, unique passwords.
 
 Key Features
